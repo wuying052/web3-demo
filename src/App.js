@@ -15,7 +15,6 @@ function App() {
     let signer = null;
 
     if (window.ethereum == null) {
-      console.log("MetaMask not installed; using read-only defaults");
       provider = ethers.getDefaultProvider();
     } else {
       provider = new ethers.BrowserProvider(window.ethereum);
@@ -30,8 +29,7 @@ function App() {
   // 查询余额
   const queryBalance = async () => {
     const text = document.getElementById("addr").value;
-    console.log(text, ethers.isAddress(text));
-    console.log(address);
+
     if (ethers.isAddress(text)) {
       setAddress(text);
     }
